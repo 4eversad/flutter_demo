@@ -1,4 +1,4 @@
-# db_demo
+# flutter_demo
 
 一个简单的flutter小项目
 
