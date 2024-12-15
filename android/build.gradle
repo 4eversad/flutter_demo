@@ -1,0 +1,35 @@
+  buildscript {
+      repositories {
+          google()
+          mavenCentral()
+          jcenter() // 已废弃，但依旧可用
+          maven { url 'https://maven.aliyun.com/repository/google' }
+          maven { url 'https://maven.aliyun.com/repository/jcenter' }
+          // 添加其他镜像
+      }
+      dependencies {
+          classpath 'com.android.tools.build:gradle:3.5.0'
+      }
+  }
+  
+  allprojects {
+      repositories {
+          google()
+          mavenCentral()
+          jcenter() // 已废弃，但依旧可用
+          maven { url 'https://maven.aliyun.com/repository/google' }
+          maven { url 'https://maven.aliyun.com/repository/jcenter' }
+          // 添加其他镜像
+      }
+  }
+  rootProject.buildDir = "../build"
+  subprojects {
+      project.buildDir = "${rootProject.buildDir}/${project.name}"
+  }
+  subprojects {
+      project.evaluationDependsOn(":app")
+  }
+
+  tasks.register("clean", Delete) {
+      delete rootProject.buildDir
+  }
