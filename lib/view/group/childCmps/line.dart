@@ -17,23 +17,17 @@ class LineWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-      return Container(
-        height: height,
-        child: Flex(
-            direction: axis,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(count, (int index) {
-              return SizedBox(
-                width: axis == Axis.horizontal ? dashWidth : 1,
-                height: axis == Axis.vertical ? dashHeight : 1,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(color: color),
-                ),
-              );
-            })),
-      );
-    });
+    return Flex(
+        direction: axis,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: List.generate(count, (int index) {
+          return SizedBox(
+            width: axis == Axis.horizontal ? dashWidth : 1,
+            height: axis == Axis.vertical ? dashHeight : 1,
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: color),
+            ),
+          );
+        }));
   }
 }

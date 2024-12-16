@@ -71,25 +71,27 @@ class _UserListItemState extends State<UserListItem> {
 
 //获取内容Widget
   Widget getUserWidget() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipOval(
-          child: Image.network(
-            'https://p1.meituan.net/imgupload/81345505c2f4dbe98deea4821b0524fd141912.webp%40_100q%7Cwatermark%3D0%7Cformat%3Djpeg',
-            width: 80,
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipOval(
+            child: Image.network(
+              'https://p1.meituan.net/imgupload/81345505c2f4dbe98deea4821b0524fd141912.webp%40_100q%7Cwatermark%3D0%7Cformat%3Djpeg',
+              width: 80,
+            ),
           ),
-        ),
-        getDetilContentWidget(),
-        LineWidget(
-          Axis.vertical,
-          dashHeight: 4,
-          height: rowHeight,
-          count: 10,
-          color: const Color.fromARGB(255, 143, 142, 142),
-        ),
-        getWishWidget()
-      ],
+          getDetilContentWidget(),
+          const LineWidget(
+            Axis.vertical,
+            dashHeight: 4,
+            // height: rowHeight,
+            count: 10,
+            color: Color.fromARGB(255, 143, 142, 142),
+          ),
+          getWishWidget()
+        ],
+      ),
     );
   }
 
